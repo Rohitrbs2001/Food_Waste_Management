@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Donate</title>
+    <!-- <link rel="stylesheet" href="home.css"> -->
+    <link rel="stylesheet" href="provider.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Waste <b style="color: rgb(10, 241, 218);">To Plate</b></div>
+        <nav class="nav-buttons">
+            <button class="user-button" onclick="location.href='buyer.html'">Type Of Provider</button>
+            <button class="user-button" onclick="location.href='ngo.html'">Type Of Food</button>
+        </nav>
+    </header>
+    
+    <div class="slideshow-container">
+        <div class="mySlides fade"><img src="./images/img10.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="./images/img4.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="./images/img9.jpg" style="width:100%"></div>
+    </div>
+    
+    <div class="content">
+        <h2>Love Food</h2>
+        <h3>Hate Wasting</h3> 
+        <p class="tagline">"Cutting food waste is a delicious way of saving money, helping to feed the world, and protecting the planet."</p>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <p class="about">
+                <span>About Us:</span> The purpose of Waste To Plate is to collect excess or leftover food from donors like hotels and distribute it to people in need.
+            </p>
+        </div>
+        <div class="footer-center">
+            <p><span>Contact</span></p>
+            <p>(+91) 9999999999</p>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="#">Foodwastemanagement@gmail.com</a></p>
+            </div>
+            <div class="sociallist">
+                <ul class="social">
+                    <li><a href="https://www.facebook.com/TheAkshayaPatraFoundation/"><img src="https://i.ibb.co/x7P24fL/facebook.png"></a></li>
+                    <li><a href="https://twitter.com/globalgiving"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
+                    <li><a href="https://www.instagram.com/charitism/"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
+                    <li><a href="https://web.whatsapp.com/"><i class="fa fa-whatsapp"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-right">
+            <h2>Waste<span>To Plate</span></h2>
+            <p class="menu">
+                <a href="#">Home</a> |
+                <a href="profile.php">Profile</a>
+            </p>
+            <p>&copy; 2024 Waste To Plate</p>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+function showSlides() {
+    const slides = document.getElementsByClassName("mySlides");
+    const dots = document.getElementsByClassName("dot");
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    slides[slideIndex-1].style.display = "block";  
+    setTimeout(showSlides, 2000);
+}
+showSlides();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Food Waste Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* background: url('img2.jpg') no-repeat center center fixed; */
+            background-color: aqua;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .feedback-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        .rating {
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            color: gray;
+        }
+        .star {
+            font-size: 20px;
+            margin: 0 2px;
+        }
+        .star.filled {
+            color: gold;
+        }
+        .add-button, .submit-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+        .add-button {
+            background-color: #007bff;
+        }
+        .add-button:hover {
+            background-color: #0056b3;
+        }
+        .submit-button {
+            background-color: #28a745;
+        }
+        .submit-button:hover {
+            background-color: #218838;
+        }
+        .dropdown-container {
+            display: none;
+            margin-top: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="feedback-container">
+    <h2>Dish Feedback Form</h2>
+    
+    <table id="feedbackTable">
+        <thead>
+            <tr>
+                <th>Dish Name</th>
+                <th>Star Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Initial rows will be added by JavaScript -->
+        </tbody>
+    </table>
+
+    <button id="addButton" class="add-button" onclick="addFeedbackRow()">Add Feedback</button>
+
+    <!-- Submit button -->
+    <button class="submit-button" onclick="submitFeedback()">Submit Feedback</button>
+</div>
+
+<script>
+    let rowCount = 0;
+
+    // Function to initialize two rows
+    function initializeRows() {
+        addFeedbackRow();
+        addFeedbackRow();
+    }
+
+    // Function to add a new feedback row
+    function addFeedbackRow() {
+        const tableBody = document.querySelector('#feedbackTable tbody');
+
+        // Create a new row
+        const row = document.createElement('tr');
+
+        // Create a cell for the Dish Name input
+        const dishCell = document.createElement('td');
+        const dishInput = document.createElement('input');
+        dishInput.type = "text";
+        dishInput.placeholder = "Enter Dish Name";
+        dishInput.className = "dish-input";
+        dishCell.appendChild(dishInput);
+        row.appendChild(dishCell);
+
+        // Create a cell for the Star Rating
+        const ratingCell = document.createElement('td');
+        const ratingContainer = document.createElement('div');
+        ratingContainer.className = 'rating';
+
+        // Create 5 stars for rating
+        for (let i = 1; i <= 5; i++) {
+            const star = document.createElement('span');
+            star.className = 'star';
+            star.innerHTML = '★';
+            star.dataset.rating = i;
+
+            // Add click event to update stars
+            star.addEventListener('click', function () {
+                updateStarRating(ratingContainer, i);
+            });
+
+            ratingContainer.appendChild(star);
+        }
+
+        ratingCell.appendChild(ratingContainer);
+        row.appendChild(ratingCell);
+
+        // Append the new row to the table body
+        tableBody.appendChild(row);
+        rowCount++;
+    }
+
+    // Function to fill stars up to the selected rating
+    function updateStarRating(container, rating) {
+        const stars = container.querySelectorAll('.star');
+        stars.forEach((star, index) => {
+            if (index < rating) {
+                star.classList.add('filled');
+            } else {
+                star.classList.remove('filled');
+            }
+        });
+        container.dataset.selectedRating = rating;  // Store the rating
+    }
+
+    // Function to handle the submit action
+    function submitFeedback() {
+        const feedbackData = [];
+        const rows = document.querySelectorAll('#feedbackTable tbody tr');
+
+        rows.forEach(row => {
+            const dishName = row.querySelector('.dish-input').value;
+            const ratingContainer = row.querySelector('.rating');
+            const rating = ratingContainer.dataset.selectedRating || "0";  // Default to 0 if no rating
+
+            feedbackData.push({ dishName, rating });
+        });
+
+        console.log("Submitted Feedback:", feedbackData);
+        alert("Feedback submitted successfully!");
+    }
+
+    // Initialize with two rows on load
+    window.onload = initializeRows;
+</script>
+
+</body>
+</html>

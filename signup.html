@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f3f4f6;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 900px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .card-left,
+        .card-right {
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .card-left {
+            background-color: #ffffff;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 15px 0;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .input-group input,
+        .input-group select {
+            border: none;
+            background: none;
+            width: 100%;
+            outline: none;
+            padding-left: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            background-color: #4CAF50;
+            transition: background-color 0.3s;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #ffffff;
+            color: #4CAF50;
+            border: 2px solid #4CAF50;
+        }
+
+        .sign-up-btn {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card-right {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .card-right h2 {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-right p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .sign-in-btn {
+            width: 100%;
+            max-width: 200px;
+            padding: 12px 0;
+            background-color: white;
+            color: #4CAF50;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            transition: all 0.3s;
+        }
+
+        .sign-in-btn:hover {
+            background-color: #4CAF50;
+            color: white;
+            border: 2px solid white;
+        }
+        .sign-in-btn2:hover {
+            background-color: white;
+            color: #4CAF50;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-left">
+                <h2 class="title">Create Your Account</h2>
+                <p style="text-align: center; color: #aaa;">Use your email for registration</p>
+
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Full Name">
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email">
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password">
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Confirm Password">
+                </div>
+
+                <!-- New input group for Provider/Consumer selection -->
+                <div class="input-group">
+                    <i class="fas fa-users"></i>
+                    <select>
+                        <option value="" disabled selected>Select Type</option>
+                        <option value="provider">Provider</option>
+                        <option value="consumer">Consumer</option>
+                    </select>
+                </div>
+
+                <div class="sign-up-btn btn"> <a href="login.html" class="sign-in-btn2">Sign up</a></div>
+            </div>
+
+            <div class="card-right">
+                <h2>Welcome Back!</h2>
+                <p>Already have an account? Log in and continue your journey.</p>
+                <a href="login.html" class="sign-in-btn">Sign in</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
